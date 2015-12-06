@@ -15,14 +15,8 @@ namespace Snake
             Console.SetWindowSize(90, 30);  
 
             //Отрисовка рамки
-            HorizontalLine topLine = new HorizontalLine(0, 88, 0, '+');
-            HorizontalLine bottomLine = new HorizontalLine(0, 88, 29, '+');
-            VerticalLine leftLine = new VerticalLine(0, 29, 0, '+');
-            VerticalLine rightLine = new VerticalLine(0, 29, 88, '+');
-            topLine.Draw();
-            bottomLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
+            Walls walls = new Walls(90, 30);
+            walls.Draw();            
 
             //Отрисовка змейки
             Point p = new Point(4, 5, '*');
@@ -36,6 +30,11 @@ namespace Snake
 
             while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+                
                 if (snake.Eat(food))
                 {
                     food.Draw();
