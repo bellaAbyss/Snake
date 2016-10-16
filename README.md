@@ -1,2 +1,2 @@
 # Snake
-A console project grom GeekBrains. It's "Snake" game.
+A console project from GeekBrains. It's "Snake" game.
